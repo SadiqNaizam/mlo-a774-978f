@@ -3,6 +3,7 @@ import SidebarNav from '../components/Home/SidebarNav';
 import TopHeader from '../components/Home/TopHeader';
 import FilterNav from '../components/Home/FilterNav';
 import VideoCardGrid from '../components/Home/VideoCardGrid';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 /**
  * The main homepage for the YouTube clone.
@@ -17,25 +18,27 @@ import VideoCardGrid from '../components/Home/VideoCardGrid';
  */
 const IndexPage: React.FC = () => {
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      <TopHeader />
-      <SidebarNav />
+    <ThemeProvider defaultTheme="dark" storageKey="youtube-clone-theme">
+      <div className="bg-background text-foreground min-h-screen">
+        <TopHeader />
+        <SidebarNav />
 
-      {/* Main content area, offset to account for fixed header (h-14) and sidebar (w-16) */}
-      <main className="pl-16 pt-14">
-        
-        {/* Wrapper for the sticky filter navigation. It sticks to the top, just below the header. */}
-        <div className="sticky top-14 z-10 bg-background border-b border-border px-6 py-2">
-          <FilterNav />
-        </div>
+        {/* Main content area, offset to account for fixed header (h-14) and sidebar (w-16) */}
+        <main className="pl-16 pt-14">
+          
+          {/* Wrapper for the sticky filter navigation. It sticks to the top, just below the header. */}
+          <div className="sticky top-14 z-10 bg-background border-b border-border px-6 py-2">
+            <FilterNav />
+          </div>
 
-        {/* Wrapper for the main video content grid with padding for spacing */}
-        <div className="px-6 py-8">
-          <VideoCardGrid />
-        </div>
+          {/* Wrapper for the main video content grid with padding for spacing */}
+          <div className="px-6 py-8">
+            <VideoCardGrid />
+          </div>
 
-      </main>
-    </div>
+        </main>
+      </div>
+    </ThemeProvider>
   );
 };
 
