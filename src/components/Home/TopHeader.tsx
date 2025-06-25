@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Menu, Youtube, Search, Mic, Video, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const TopHeader: React.FC = () => {
   return (
@@ -49,6 +50,7 @@ const TopHeader: React.FC = () => {
         <Button variant="ghost" size="icon">
           <Bell className="h-6 w-6" />
         </Button>
+        <ThemeToggle />
         <Avatar className="h-8 w-8">
           <AvatarImage src="https://i.pravatar.cc/32?u=r" alt="User Avatar" />
           <AvatarFallback>R</AvatarFallback>
